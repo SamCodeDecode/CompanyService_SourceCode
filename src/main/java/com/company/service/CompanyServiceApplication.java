@@ -20,9 +20,7 @@ public class CompanyServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CompanyServiceApplication.class, args);
-//		SpringApplication app=new SpringApplication(CompanyServiceApplication.class);
-//		app.setDefaultProperties(null);
-//		app.run(args);
+
 		
 	}
 
@@ -39,11 +37,8 @@ public class CompanyServiceApplication {
 	    return ServerCodecConfigurer.create();
 	}
 
-//	
-//	@Bean
-//	public CacheManager cache() {
-//		
-//		return new SimpleCacheManager();
-//	}
+
+	System.out.println("Hello Sam");
+
 
 }
