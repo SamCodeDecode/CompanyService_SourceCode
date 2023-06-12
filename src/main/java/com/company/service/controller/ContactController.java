@@ -16,8 +16,11 @@ import com.company.service.entity.Contact;
 import com.company.service.services.CompanyService;
 import com.company.service.services.ContactServices;
 
+import io.swagger.annotations.Api;
+
 @RestController
 @RequestMapping("/company/contact")
+@Api(value = "Contact", description = "Operations for Contact Class") //Comment for Swagger
 public class ContactController {
 	
 	@Autowired

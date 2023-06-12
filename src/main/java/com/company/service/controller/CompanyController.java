@@ -17,9 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.company.service.entity.Company;
 import com.company.service.services.CompanyService;
 
+import io.swagger.annotations.Api;
+
 @RestController
 @EnableCaching
 @RequestMapping("/company")
+@Api(value = "Company", description = "Operations for Company class") //Comment for Swagger Doc
 public class CompanyController {
 	
 	@Autowired
@@ -27,9 +30,9 @@ public class CompanyController {
 	
 	
 	@GetMapping("/getall")
-	//@Cacheable("mycache")
+	@Cacheable("mycache")
 	//@CachePut(value = "myCache")
-	@Cacheable
+	//@Cacheable
 	public ResponseEntity<List<Company>> getCompany(){
 		List<Company> cmp=this.serv.getCompServ();
 		return ResponseEntity.status(HttpStatus.ACCEPTED).body(cmp);
@@ -39,6 +42,7 @@ public class CompanyController {
 	public ResponseEntity<Company>  addCompany(@RequestBody Company comp ) {
 			
 		return ResponseEntity.ok().body(this.serv.SaveCompany(comp));
+	
 	}
 	@GetMapping("/get/{id}")
 	public ResponseEntity<Company> getCompany(@PathVariable int id ){
